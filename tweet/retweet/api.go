@@ -8,10 +8,22 @@ import (
 )
 
 const (
+	listRetweetEndpoint = "https://api.twitter.com/2/tweets/:id/retweets"
 	listUsersEndpoint = "https://api.twitter.com/2/tweets/:id/retweeted_by"
 	createEndpoint    = "https://api.twitter.com/2/users/:id/retweets"
 	deleteEndpoint    = "https://api.twitter.com/2/users/:id/retweets/:source_tweet_id"
 )
+
+// Returns retweet Tweets for a Tweet specified by the requested Tweet ID.
+// https://developer.twitter.com/en/docs/twitter-api/tweets/retweets/api-reference/get-tweets-id-retweets
+func List(ctx context.Context, c *gotwi.Client, p *types.ListInput) (*types.ListOutput, error) {
+	res := &types.ListOutput{}
+	if err := c.CallAPI(ctx, listEndpoint, "GET", p, res); err != nil {
+		return nil, err
+	}
+
+	return res, nil
+}
 
 // Allows you to get information about who has Retweeted a Tweet.
 // https://developer.twitter.com/en/docs/twitter-api/tweets/retweets/api-reference/get-tweets-id-retweeted_by

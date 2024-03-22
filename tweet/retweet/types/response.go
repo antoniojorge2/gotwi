@@ -37,3 +37,16 @@ type DeleteOutput struct {
 func (r *DeleteOutput) HasPartialError() bool {
 	return false
 }
+
+type ListOutput struct {
+	Data     []resources.Tweet `json:"data"`
+	Includes struct {
+		Users []resources.User `json:"users,omitempty"`
+	} `json:"includes,omitempty"`
+	Meta   resources.PaginationMeta `json:"meta"`
+	Errors []resources.PartialError  `json:"errors,omitempty"`
+}
+
+func (r *ListOutput) HasPartialError() bool {
+	return !(r.Errors == nil || len(r.Errors) == 0)
+}
