@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	listRetweetEndpoint = "https://api.twitter.com/2/tweets/:id/retweets"
+	listEndpoint = "https://api.twitter.com/2/tweets/:id/retweets"
 	listUsersEndpoint = "https://api.twitter.com/2/tweets/:id/retweeted_by"
 	createEndpoint    = "https://api.twitter.com/2/users/:id/retweets"
 	deleteEndpoint    = "https://api.twitter.com/2/users/:id/retweets/:source_tweet_id"
