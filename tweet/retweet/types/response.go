@@ -4,6 +4,7 @@ import "github.com/michimani/gotwi/resources"
 
 type ListUsersOutput struct {
 	Data     []resources.User `json:"data"`
+	Meta     resources.PaginationMeta
 	Includes struct {
 		Tweets []resources.Tweet `json:"tweets,omitempty"`
 		Places []resources.Place `json:"places,omitempty"`
