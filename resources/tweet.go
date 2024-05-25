@@ -24,6 +24,12 @@ type Tweet struct {
 	ReplySettings       *string             `json:"reply_settings,omitempty"`
 	Source              *string             `json:"source,omitempty"`
 	Withheld            *TweetWithheld      `json:"withheld,omitempty"`
+	NoteTweet           *NoteTweet     		`json:"note_tweet"`
+}
+
+type NoteTweet struct {
+	Entities *TweetEntities `json:"entities"`
+	Text     string   `json:"text"`
 }
 
 type TweetAttachments struct {
